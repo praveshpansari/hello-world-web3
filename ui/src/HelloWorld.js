@@ -18,15 +18,17 @@ const HelloWorld = () => {
   const [newMessage, setNewMessage] = useState("");
 
   //called only once
-  useEffect(async () => {
-    const message = await loadCurrentMessage();
-    setMessage(message);
-    addSmartContractListener();
+  useEffect(() => {
+    async function intializeFunctions() {
+      const message = await loadCurrentMessage();
+      setMessage(message);
+      addSmartContractListener();
 
-    const { address, status } = await getCurrentWalletConnected();
-    setWallet(address);
-    setStatus(status);
-
+      const { address, status } = await getCurrentWalletConnected();
+      setWallet(address);
+      setStatus(status);
+    }
+    intializeFunctions();
     addWalletListener();
   }, []);
 
@@ -57,7 +59,7 @@ const HelloWorld = () => {
         <p>
           {" "}
           🦊{" "}
-          <a target="_blank" href={`https://metamask.io/download.html`}>
+          <a target="_blank" rel="noreferrer" href={`https://metamask.io/download.html`}>
             You must install MetaMask, a virtual Ethereum wallet, in your
             browser.
           </a>
@@ -80,7 +82,7 @@ const HelloWorld = () => {
   //the UI of our component
   return (
     <div id="container">
-      <img id="logo" src={alchemylogo}></img>
+      <img id="logo" alt="logo" src={alchemylogo}></img>
       <button id="walletButton" onClick={connectWalletPressed}>
         {walletAddress.length > 0 ? (
           "Connected: " +
