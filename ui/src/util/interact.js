@@ -42,7 +42,7 @@ export const connectWallet = async () => {
           <p>
             {" "}
             🦊{" "}
-            <a target="_blank" href={`https://metamask.io/download.html`}>
+            <a target="_blank" rel="noreferrer" href={`https://metamask.io/download.html`}>
               You must install MetaMask, a virtual Ethereum wallet, in your
               browser.
             </a>
@@ -84,7 +84,7 @@ export const getCurrentWalletConnected = async () => {
           <p>
             {" "}
             🦊{" "}
-            <a target="_blank" href={`https://metamask.io/download.html`}>
+            <a target="_blank" rel="noreferrer" href={`https://metamask.io/download.html`}>
               You must install MetaMask, a virtual Ethereum wallet, in your
               browser.
             </a>
@@ -123,7 +123,7 @@ export const updateMessage = async (address, message) => {
       status: (
         <span>
           ✅{" "}
-          <a target="_blank" href={`https://goerli.etherscan.io/tx/${txHash}`}>
+          <a target="_blank" rel="noreferrer" href={`https://goerli.etherscan.io/tx/${txHash}`}>
             View the status of your transaction on Etherscan!
           </a>
           <br />
